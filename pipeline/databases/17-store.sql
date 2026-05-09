@@ -1,5 +1,6 @@
 -- Create a trigger to decrease item quantity after an order is placed
 
+DROP TRIGGER IF EXISTS decrease_quantity_after_order;
 DELIMITER $$
 
 CREATE TRIGGER decrease_quantity_after_order
