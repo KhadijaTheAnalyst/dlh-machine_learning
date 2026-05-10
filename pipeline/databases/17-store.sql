@@ -5,8 +5,8 @@
 
 DELIMITER $$
 
-CREATE TRIGGER decrease_quantity_after_order
-BEFORE INSERT ON orders
+CREATE TRIGGER decrease_quantity
+AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
     UPDATE items
