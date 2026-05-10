@@ -4,16 +4,19 @@
 -- SELECT SafeDiv(10, 0); -- Returns NULL   
 
 DELIMITER $$
+
 CREATE FUNCTION SafeDiv (
-    a INT, 
-    b INT
-) RETURNS INT
+    a FLOAT,
+    b FLOAT
+)
+RETURNS FLOAT
 DETERMINISTIC
 BEGIN
     IF b = 0 THEN
-        RETURN 0; -- or you could return a specific value like 0 or -1 to indicate an error
-    ELSE
-        RETURN a / b;
+        RETURN NULL;
     END IF;
+
+    RETURN a / b;
 END$$
+
 DELIMITER ;
