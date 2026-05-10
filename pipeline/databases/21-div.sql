@@ -13,7 +13,7 @@ RETURNS FLOAT
 DETERMINISTIC
 BEGIN
     IF b = 0 THEN
-        RETURN NULL;
+        RETURN 0; -- or you could return NULL, depending on your preference
     END IF;
 
     RETURN a / b;
