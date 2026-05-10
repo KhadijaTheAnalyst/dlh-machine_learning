@@ -17,8 +17,8 @@ BEGIN
     WHERE c.user_id = user_id;
 
     -- Update the user's weighted average score
-    UPDATE users
-    SET weighted_average_score = weighted_avg
-    WHERE id = user_id;
+   UPDATE users
+   SET average_score = weighted_avg
+   WHERE id = user_id;
 END$$
 DELIMITER ;
