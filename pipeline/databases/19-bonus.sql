@@ -20,9 +20,3 @@ BEGIN
     INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, project_id, score);
 END$$
 DELIMITER ;
-
-
--- SELECT id                        -- Get the ID column
--- INTO project_id                  -- Store it in variable project_id
--- FROM projects                    -- From the projects table
--- WHERE name = project_name;       -- Where name matches the input parameter
