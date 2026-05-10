@@ -89,7 +89,7 @@ def log_stats():
         # Print with tab character (\t) for proper indentation
         # Format: \t[METHOD]: [COUNT]
         # Example: \tGET: 1234
-        print(f"\t{method}: {count}")
+        print(f"\tmethod {method}: {count}")
 
     # ============================================================
     # STEP 7: Count GET Requests to /status Endpoint
@@ -103,7 +103,7 @@ def log_stats():
 
     # Print the count of GET /status requests
     # No tab indentation for this line, as per requirements
-    print(f"GET /status: {status_count}")
+    print(f"{status_count} status check")
 
     # ============================================================
     # STEP 8: Close MongoDB Connection
