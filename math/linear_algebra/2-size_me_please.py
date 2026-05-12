@@ -9,7 +9,16 @@ empty matrices and matrices with only one row or one column.
 
 
 def matrix_shape(matrix):
-    """Returns the number of rows and columns of a matrix as a tuple (num_rows, num_cols)"""
+    """
+    Returns the shape of a matrix as a list of integers.
+    The shape of a matrix is the number of rows and columns
+    in the matrix.
+    args:
+        matrix: A list of lists representing a matrix.
+        returns: A list of integers representing the shape
+        of the matrix.
+        """
+    
     shape = [len(matrix)]
     if isinstance(matrix[0], list):
         shape += matrix_shape(matrix[0])
