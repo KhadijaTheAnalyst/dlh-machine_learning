@@ -11,7 +11,7 @@ the same number of columns).
 Author: KMustafa
 Date: May 2026
 """
-def matrix_tranpose(matrix):
+def matrix_transpose(matrix):
     """
     Returns the transpose of a 2D matrix.
     
