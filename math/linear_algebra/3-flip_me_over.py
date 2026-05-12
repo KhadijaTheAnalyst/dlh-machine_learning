@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/env python3
 """
 This module provides functions for basic linear algebra operations on 2D matrices.
 
