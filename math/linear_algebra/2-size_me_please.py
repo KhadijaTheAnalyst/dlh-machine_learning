@@ -18,7 +18,7 @@ def matrix_shape(matrix):
         returns: A list of integers representing the shape
         of the matrix.
         """
-    
+
     shape = [len(matrix)]
     if isinstance(matrix[0], list):
         shape += matrix_shape(matrix[0])
