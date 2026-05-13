@@ -38,7 +38,7 @@ def np_shape(matrix):
 
     Note:
         - Works with arrays of any dimension (1D, 2D, 3D, etc.)
-        - Returns a tuple, even for 1D arrays (e.g., (6,) not 6)
+        - Returns a tuple, even fur 1D arrays (e.g., (6,) not 6)
         - No loops or conditional statements needed
         - No imports required
     """
