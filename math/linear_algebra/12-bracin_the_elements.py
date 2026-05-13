@@ -2,6 +2,7 @@
 """Perform element-wise addition, subtraction, multiplication,
 and division on numpy arrays."""
 
+
 def np_elementwise(mat1, mat2):
     """Perform element-wise addition, subtraction,
     multiplication, and division."""
