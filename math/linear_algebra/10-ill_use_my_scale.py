@@ -11,4 +11,5 @@ Date: May 2026
 
 
 def np_shape(matrix):
+    """Return the shape of a numpy array as a tuple."""
     return matrix.shape
