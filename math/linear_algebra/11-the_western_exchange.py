@@ -8,6 +8,8 @@ The module includes:
 Author: KMustafa
 Date: May 2026
 """
+
+
 def np_transpose(matrix):
     """Transpose a numpy array."""
     return matrix.T
