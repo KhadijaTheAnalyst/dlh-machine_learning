@@ -4,6 +4,6 @@
 def np_slice(matrix, axes={}):
     """Build slice list, update it, convert to tuple."""
     slices = [slice(None)] * matrix.ndim
-    for axis, (start, stop) in axes.items():
-        slices[axis] = slice(start, stop)
+    for axis, slice_tuple in axes.items():
+        slices[axis] = slice(*slice_tuple)  # ✅ Handles 2 or 3 values!
     return matrix[tuple(slices)]
