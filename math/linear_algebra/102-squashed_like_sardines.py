@@ -8,7 +8,7 @@ def cat_matrices(mat1, mat2, axis=0):
 
     result = []
     for i in range(len(mat1)):
-        concatenated = cat_any_axis_recursive(mat1[i], mat2[i], axis - 1)
+        concatenated = cat_matrices(mat1[i], mat2[i], axis - 1)
         result.append(concatenated)
 
     return result
