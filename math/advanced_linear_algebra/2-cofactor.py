@@ -125,7 +125,7 @@ def cofactor(matrix):
     n = len(matrix)
     for row in matrix:
         if len(row) != n:
-            raise ValueError("matrix must be a non-emptysquare matrix")
+            raise ValueError("matrix must be a non-empty square matrix")
 
     # Special case: 1x1 matrix
     # The minor of a single element is defined as [[1]]
