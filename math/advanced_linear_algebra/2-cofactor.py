@@ -109,84 +109,41 @@ def determinant(matrix):
         return det
 
 
-def minor(matrix):
+def cofactor(matrix):
     """
-    Compute the minor matrix of a square matrix.
-
-    The minor matrix is formed by calculating the determinant of the
-    submatrix obtained by removing one row and one column for each
-    element in the original matrix.
-
-    Args:
-        matrix (list of lists): A square matrix represented as a list of lists.
-
-    Returns:
-        list of lists: The minor matrix, where each element (i, j) is the
-        determinant of the matrix formed by removing row i and column j
-        from the original matrix.
-
-    Raises:
-        TypeError: If matrix is not a list of lists.
-        ValueError: If matrix is empty or not a square matrix.
-
-    Special case:
-        If the matrix is 1x1, returns [[1]].
+    Compute the cofactor matrix of a square matrix.
     """
 
-    # Must be a list
-    if not isinstance(matrix, list):
+    # validation (reuse your logic if already safe in determinant/minor)
+    if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
 
-    # Must not be empty
-    if len(matrix) == 0:
-        raise TypeError("matrix must be a list of lists")
-
-    # Must be list of lists
     for row in matrix:
         if not isinstance(row, list):
             raise TypeError("matrix must be a list of lists")
 
-    # Must be square
+    n = len(matrix)
     for row in matrix:
-        if len(row) != len(matrix):
-            raise ValueError("matrix must be a non-empty square matrix")
+        if len(row) != n:
+            raise ValueError("matrix must be a square matrix")
 
     # Special case: 1x1 matrix
     # The minor of a single element is defined as [[1]]
-    if len(matrix) == 1:
+    if n == 1:
         return [[1]]
-
-    result = []  # This will store the final minor matrix
-
-    # Loop through each row (i = row index to remove)
-    for i in range(len(matrix)):
-
-        row = []  # This will store one row of the result matrix
-
-        # Loop through each column (j = column index to remove)
-        for j in range(len(matrix[i])):
-
-            minor = []  # This will store the submatrix for (i, j)
-
-            # Build the submatrix by skipping row i
-            for r in range(len(matrix)):
-
-                if r != i:  # skip the row being excluded
-
-                    new_row = []
-
-                    # Build each row of the submatrix by skipping column j
-                    for c in range(len(matrix)):
-
-                        if c != j:  # skip the column being excluded
-                            new_row.append(matrix[r][c])
-
-                    minor.append(new_row)  # add processed row to submatrix
-
-            # Compute determinant of the submatrix and store it
-            row.append(determinant(minor))
-
-        # Add completed row to result matrix
-        result.append(row)
-
-    return result
+    cof = []
+    for i in range(n):
+        new_row = []
+        for j in range(n):
+            minor = []
+            for r in range(n):
+                if r != i:
+                    new_minor_row = []
+                    for c in range(n):
+                        if c != j:
+                            new_minor_row.append(matrix[r][c])
+                    minor.append(new_minor_row)
+                    sign = (-1) ** (i+j)
+            new_row.append(sign * determinant(minor))
+        cof.append(new_row)
+    return cof
