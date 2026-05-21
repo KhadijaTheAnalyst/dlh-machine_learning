@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Calculate the determinant of a square matrix.
- 
+
 This module provides functionality to compute the determinant of n×n matrices
 using recursive cofactor expansion. It handles validation of matrix structure
 and applies appropriate algorithms based on matrix size.
@@ -11,21 +11,21 @@ and applies appropriate algorithms based on matrix size.
 def determinant(matrix):
     """
     Calculate the determinant of a square matrix.
- 
+
     Uses direct calculation for small matrices (1×1, 2×2) and recursive
     cofactor expansion for larger matrices (3×3+).
- 
+
     Args:
         matrix (list of lists): A square matrix represented as a list of lists,
                                 where each inner list is a row.
- 
+
     Returns:
         int or float: The determinant of the matrix.
- 
+
     Raises:
         TypeError: If matrix is not a list of lists.
         ValueError: If matrix is not square (rows ≠ columns).
- 
+
     Note:
         - The list [[]] represents a 0×0 matrix with determinant = 1
         - Empty list [] raises TypeError
@@ -87,7 +87,8 @@ def determinant(matrix):
             # Calculate the sign: alternates (+1, -1, +1, -1, ...)
             sign = (-1) ** column
 
-            # Add the cofactor contribution: element * sign * determinant(minor)
+            # Add the cofactor contribution:
+            # element * sign * determinant(minor)
             det += matrix[0][column] * sign * determinant(minor)
 
         return det
