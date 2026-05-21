@@ -133,6 +133,24 @@ def minor(matrix):
         If the matrix is 1x1, returns [[1]].
     """
 
+    # Must be a list
+    if not isinstance(matrix, list):
+        raise TypeError("matrix must be a list of lists")
+
+    # Must not be empty
+    if len(matrix) == 0:
+        raise TypeError("matrix must be a list of lists")
+
+    # Must be list of lists
+    for row in matrix:
+        if not isinstance(row, list):
+            raise TypeError("matrix must be a list of lists")
+
+    # Must be square
+    for row in matrix:
+        if len(row) != len(matrix):
+            raise ValueError("matrix must be a non-empty square matrix")
+
     # Special case: 1x1 matrix
     # The minor of a single element is defined as [[1]]
     if len(matrix) == 1:
