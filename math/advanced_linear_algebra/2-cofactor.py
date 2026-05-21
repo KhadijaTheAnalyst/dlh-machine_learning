@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 """
-Advanced Linear Algebra Module
+This module provides functions for performing advanced operations on
+square matrices using pure Python lists.
 
-This module provides functions for working with square matrices,
-including computation of determinants and minor matrices.
+Implemented functions:
+    - determinant(matrix):
+        Computes the determinant of a square matrix using recursive
+        cofactor expansion.
 
-Functions:
-    - determinant(matrix): Computes the determinant of a square matrix
-    - minor(matrix): Computes the minor matrix of a square matrix
+    - cofactor(matrix):
+        Computes the cofactor matrix of a square matrix.
 
-Both functions assume the input is a valid square matrix represented
-as a list of lists.
+Matrices are represented as lists of lists, where each inner list
+represents a row of the matrix.
 
 Validation rules:
     - Input must be a list of lists
-    - Matrix must be non-empty
+    - Matrix must not be empty
     - Matrix must be square (same number of rows and columns)
 
-Note:
-    The determinant function uses recursive cofactor expansion for
-    matrices larger than 2x2.
+Special cases:
+    - [[]] represents a 0x0 matrix with determinant = 1
+    - A 1x1 matrix has cofactor matrix [[1]]
 """
 
 
@@ -112,38 +114,84 @@ def determinant(matrix):
 def cofactor(matrix):
     """
     Compute the cofactor matrix of a square matrix.
+
+    The cofactor matrix is formed by computing the determinant of the
+    minor matrix for each element and applying the alternating sign
+    pattern:
+
+        (+ - + ...)
+        (- + - ...)
+        (+ - + ...)
+
+    Args:
+        matrix (list of lists): A square matrix represented as a list
+        of lists.
+
+    Returns:
+        list of lists: The cofactor matrix of the input matrix.
+
+    Raises:
+        TypeError: If matrix is not a list of lists.
+        ValueError: If matrix is not a non-empty square matrix.
+
+    Special case:
+        A 1x1 matrix returns [[1]].
     """
 
-    # validation (reuse your logic if already safe in determinant/minor)
+    # Validate matrix type
     if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
 
+    # Ensure each row is a list
     for row in matrix:
         if not isinstance(row, list):
             raise TypeError("matrix must be a list of lists")
 
     n = len(matrix)
+
+    # Ensure matrix is square
     for row in matrix:
         if len(row) != n:
             raise ValueError("matrix must be a non-empty square matrix")
 
-    # Special case: 1x1 matrix
-    # The minor of a single element is defined as [[1]]
+    # Special case: cofactor of a 1x1 matrix is [[1]]
     if n == 1:
         return [[1]]
+
     cof = []
+
+    # Loop through each row
     for i in range(n):
+
         new_row = []
+
+        # Loop through each column
         for j in range(n):
+
             minor = []
+
+            # Build minor matrix by excluding row i
             for r in range(n):
+
                 if r != i:
+
                     new_minor_row = []
+
+                    # Exclude column j
                     for c in range(n):
+
                         if c != j:
                             new_minor_row.append(matrix[r][c])
+
                     minor.append(new_minor_row)
-                    sign = (-1) ** (i+j)
+
+            # Compute alternating cofactor sign
+            sign = (-1) ** (i + j)
+
+            # Compute cofactor value
             new_row.append(sign * determinant(minor))
+
+        # Add completed row to cofactor matrix
         cof.append(new_row)
+
     return cof
