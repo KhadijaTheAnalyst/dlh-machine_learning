@@ -30,7 +30,7 @@ def definiteness(matrix):
 
     if rows != cols:
         return None
-    
+
     if not np.allclose(matrix, matrix.T):
         return None
 
