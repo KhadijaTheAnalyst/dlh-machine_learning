@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Matrix Definiteness Module
- 
+
 This module provides functionality to determine the definiteness of a square
 matrix by analyzing its eigenvalues.
 """
@@ -12,7 +12,7 @@ import numpy as np
 def definiteness(matrix):
     """
     Determines the definiteness of an n×n square matrix.
- 
+
     """
     # ========== INPUT VALIDATION SECTION ==========
 
@@ -34,7 +34,7 @@ def definiteness(matrix):
     # Check if matrix is square (required for eigenvalue-based definiteness)
     if rows != cols:
         return None
-    
+
     # Symmetry check
     if not np.allclose(matrix, matrix.T):
         return None
