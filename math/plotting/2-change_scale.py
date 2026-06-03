@@ -23,7 +23,7 @@ def change_scale():
 
     plt.figure(figsize=(6.4, 4.8))
 
-    plt.plot(x, y, color='blue')
+    plt.plot(x, y)
 
     plt.title("Exponential Decay of C-14")
     plt.xlabel("Time (years)")
