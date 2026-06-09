@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
 """Module for the Normal distribution class."""
 
 
@@ -118,7 +117,9 @@ class Normal:
         z = (x - self.mean) / (self.stddev * (2 ** 0.5))
 
         # Approximate erf using the Taylor series expansion
-        erf = (2 / pi ** 0.5) * (z - (z ** 3) / 3 + (z ** 5) / 10 -
-                                (z ** 7) / 42 + (z ** 9) / 216)
+        erf = (2 / pi ** 0.5) * (
+            z - (z ** 3) / 3 + (z ** 5) / 10 -
+            (z ** 7) / 42 + (z ** 9) / 216
+        )
 
         return 0.5 * (1 + erf)
