@@ -89,16 +89,17 @@ class Poisson:
             return 0
 
         e = 2.7182818285
+        # Compute e^(-lambda) once — it's constant across all terms
+        e_neg_lambda = e ** (-self.lambtha)
         cdf_value = 0
 
         for i in range(k + 1):
-            e_neg_lambda = e ** (-self.lambtha)
             lambda_i = self.lambtha ** i
 
-        i_factorial = 1
-        for j in range(1, i + 1):
-            i_factorial *= j
+            i_factorial = 1
+            for j in range(1, i + 1):
+                i_factorial *= j
 
-        cdf_value += (e_neg_lambda * lambda_i) / i_factorial
+            cdf_value += (e_neg_lambda * lambda_i) / i_factorial
 
         return cdf_value
