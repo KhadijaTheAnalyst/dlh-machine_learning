@@ -68,3 +68,37 @@ class Poisson:
             k_factorial *= i
 
         return (e_neg_lambda * lambda_k) / k_factorial
+
+    def cdf(self, k):
+         """Calculates the value of the CDF for a given number of successes.
+
+        The Poisson CDF is the cumulative sum of the PMF from 0 through k:
+            P(X <= k) = sum_{i=0}^{k} (e^(-lambda) * lambda^i) / i!
+
+        Args:
+            k (int): The number of successes. Non-integers are converted
+                to integers. Negative values return 0.
+
+        Returns:
+            float: The CDF value for k, or 0 if k is out of range.
+        """
+    if not isinstance(k, int):
+        k = int(k)
+
+    if k < 0:
+        return 0
+
+    e = 2.7182818285
+    cdf_value = 0
+
+    for i in range(k + 1):
+        e_neg_lambda = e ** (-self.lambtha)
+        lambda_i = self.lambtha ** i
+
+        i_factorial = 1
+        for j in range(1, i + 1):
+            i_factorial *= j
+
+        cdf_value += (e_neg_lambda * lambda_i) / i_factorial
+
+    return cdf_value
