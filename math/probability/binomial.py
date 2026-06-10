@@ -2,6 +2,21 @@
 """Module for Binomial distribution class."""
 
 
+def factorial(n):
+    """Return the factorial of n.
+
+    Args:
+        n (int): Non-negative integer.
+
+    Returns:
+        int: n!
+    """
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+
 class Binomial:
     """Represents a binomial distribution."""
 
@@ -31,17 +46,11 @@ class Binomial:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
 
-            # Step 1: calculate mean and variance from data
             mean = sum(data) / len(data)
             variance = sum((x - mean) ** 2 for x in data) / len(data)
 
-            # Step 2: estimate p first using method of moments
             p = 1 - (variance / mean)
-
-            # Step 3: estimate n and round to nearest integer
             n = round(mean / p)
-
-            # Step 4: recalculate p now that n is rounded
             p = mean / n
 
             self.n = n
@@ -61,16 +70,8 @@ class Binomial:
         if k < 0 or k > self.n:
             return 0
 
-        # Calculate n! / (k! * (n-k)!) without importing math
-        def factorial(num):
-            """Return factorial of num."""
-            result = 1
-            for i in range(2, num + 1):
-                result *= i
-            return result
-
-        coefficient = factorial(self.n) // (factorial(k) *
-                                            factorial(self.n - k))
+        coefficient = (factorial(self.n) //
+                       (factorial(k) * factorial(self.n - k)))
 
         return coefficient * (self.p ** k) * ((1 - self.p) ** (self.n - k))
 
