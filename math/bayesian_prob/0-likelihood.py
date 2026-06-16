@@ -2,7 +2,6 @@
 """Calculates the likelihood of obtaining data given various
 hypothetical probabilities."""
 import numpy as np
-import math
 
 
 def likelihood(x, n, P):
