@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """Calculates the marginal probability of obtaining the data."""
 import numpy as np
-import math
+
+
+def factorial(k):
+    """Computes k! without relying on the math module."""
+    result = 1
+    for i in range(2, k + 1):
+        result *= i
+    return result
 
 
 def marginal(x, n, P, Pr):
@@ -35,9 +42,9 @@ def marginal(x, n, P, Pr):
         raise ValueError("Pr must sum to 1")
 
     # binomial coefficient: n! / (x! * (n-x)!)
-    fact_n = math.factorial(n)
-    fact_x = math.factorial(x)
-    fact_nx = math.factorial(n - x)
+    fact_n = factorial(n)
+    fact_x = factorial(x)
+    fact_nx = factorial(n - x)
     binom_coeff = fact_n / (fact_x * fact_nx)
 
     likelihoods = binom_coeff * (P ** x) * ((1 - P) ** (n - x))
