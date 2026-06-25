@@ -42,4 +42,3 @@ class MultiNormal:
         exponent = -0.5 * (diff.T @ inv @ diff)[0, 0]
 
         return float(coeff * np.exp(exponent))
-    
