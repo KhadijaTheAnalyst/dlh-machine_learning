@@ -1,2 +1,3 @@
 // List all MongoDB databases
+// To see all available databases, in your terminal type show dbs.
 show dbs
