@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Module that creates a pandas DataFrame from a np.ndarray."""
-import string
 import pandas as pd
 
 
