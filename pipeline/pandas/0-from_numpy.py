@@ -14,6 +14,6 @@ def from_numpy(array):
         alphabetically (A, B, C, ...) based on the number of
         columns in array.
     """
-    columns = list(string.ascii_uppercase[:array.shape[1]])
+    columns = [chr(65 + i) for i in range(array.shape[1])]
     df = pd.DataFrame(array, columns=columns)
     return df
