@@ -3,7 +3,6 @@
 A collection of machine learning engineering exercises built from the ground up, math, data pipelines, and the plumbing that sits underneath any real ML system, completed as part of the AI Academy at Digital Learning Hub Luxembourg (Holberton School ML Engineering curriculum).
 
 ![Plotting exercise output](visuals/plot_example.png)
-*(Replace this with a screenshot of one of your math/plotting outputs or a pandas summary table. Export it as a PNG, commit it to a visuals/ folder, and update the path above.)*
 
 ---
 
