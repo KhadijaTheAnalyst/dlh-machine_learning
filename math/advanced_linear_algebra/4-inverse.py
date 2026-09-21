@@ -6,12 +6,12 @@ This module provides functionality to compute the
 inverse of an n×n square matrix
 using the adjugate matrix and determinant.
 
-The inverse of a matrix A is the matrix A⁻¹ such that:
+The inverse of a matrix A is the matrix A⁻¹h such that:
     A * A⁻¹ = A⁻¹ * A = I
 
 Where I is the n×n identity matrix.
 
-A matrix has an inverse if and only if its determinantis
+A matrix has an inverse if and only if its determinant is
 non-zero (non-singular).
 
 The inverse is computed using the formula:
@@ -88,8 +88,8 @@ def inverse(matrix):
         [[0.0196..., -0.0490..., 0.0540...], ...]
 
     Note:
-        - The input matrix must be square (n×n). Non-square matrices will raise
-          a ValueError.
+        - The input matrix must be square (n×n). Non-square
+          matrices will raise a ValueError.
         - A singular matrix (determinant = 0) has no inverse. The function
           returns None in this case.
         - The inverse is particularly useful for solving systems of linear
