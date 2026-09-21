@@ -99,7 +99,9 @@ def log_stats():
     # 2. path field must equal "/status"
     # Both conditions must be true (AND operation)
     # This counts requests like: GET /status HTTP/1.1
-    status_count = collection.count_documents({"method": "GET", "path": "/status"})
+    status_count = collection.count_documents(
+        {"method": "GET", "path": "/status"}
+    )
 
     # Print the count of GET /status requests
     # No tab indentation for this line, as per requirements
